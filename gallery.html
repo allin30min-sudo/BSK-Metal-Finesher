@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Gallery | BSK METAL FINISHER</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#D4AF37',
+                        dark: '#1a1a1a',
+                        light: '#f5f5f5',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        .glass {
+            background: rgba(26, 26, 26, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+
+<body class="bg-dark text-light font-sans overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-gray-800">
+        <div class="container mx-auto px-4 md:px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div
+                    class="w-8 h-8 bg-primary rounded flex items-center justify-center font-heading font-black text-dark text-lg">
+                    B</div>
+                <span class="text-xl font-heading font-extrabold tracking-tighter uppercase">BSK <span
+                        class="text-primary">METAL</span></span>
+            </a>
+            <div class="hidden lg:flex items-center gap-8">
+                <a href="index.html" class="hover:text-primary transition-colors font-medium">Home</a>
+                <a href="about.html" class="hover:text-primary transition-colors font-medium">About Us</a>
+                <a href="services.html" class="hover:text-primary transition-colors font-medium">Services</a>
+                <a href="gallery.html"
+                    class="text-primary transition-colors font-medium underline underline-offset-8">Gallery</a>
+                <a href="pricing.html" class="hover:text-primary transition-colors font-medium">Pricing</a>
+                <a href="index.html#contact"
+                    class="px-6 py-2 bg-primary text-dark font-bold rounded-full hover:scale-105 transition-all">Get
+                    Quote</a>
+            </div>
+            <button class="lg:hidden text-primary" onclick="toggleMenu()"><i data-lucide="menu"></i></button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu"
+        class="fixed inset-0 z-40 bg-dark/95 backdrop-blur-xl hidden flex-col items-center justify-center gap-8 text-2xl font-heading font-black uppercase tracking-widest">
+        <button class="absolute top-6 right-6 text-primary" onclick="toggleMenu()"><i data-lucide="x"></i></button>
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="about.html" onclick="toggleMenu()">About Us</a>
+        <a href="services.html" onclick="toggleMenu()">Services</a>
+        <a href="gallery.html" onclick="toggleMenu()" class="text-primary">Gallery</a>
+        <a href="pricing.html" onclick="toggleMenu()">Pricing</a>
+        <a href="index.html#contact" onclick="toggleMenu()" class="text-primary">Contact</a>
+    </div>
+
+    <!-- Page Header -->
+    <section class="pt-40 pb-20 bg-[#121212]">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-6xl font-heading font-black text-light mb-6 uppercase tracking-tighter">Work
+                <span class="text-primary">Gallery</span></h1>
+            <p class="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed font-medium">
+                Showcasing our high-quality surface treatments for industrial components, luxury goods, and precision
+                hardware.
+            </p>
+        </div>
+    </section>
+
+    <!-- Gallery Grid -->
+    <section class="py-20 bg-dark">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="gallery-grid">
+                <!-- Gallery items injected via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark border-t border-gray-800 py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h3 class="text-2xl font-heading font-black text-primary mb-8 tracking-widest uppercase">BSK METAL FINISHER
+            </h3>
+            <div
+                class="flex flex-wrap justify-center gap-6 mb-10 text-sm md:text-md font-bold uppercase tracking-widest">
+                <a href="index.html" class="text-gray-400 hover:text-primary">Home</a>
+                <a href="about.html" class="text-gray-400 hover:text-primary">About Us</a>
+                <a href="services.html" class="text-gray-400 hover:text-primary">Services</a>
+                <a href="gallery.html" class="text-primary">Gallery</a>
+                <a href="pricing.html" class="text-gray-400 hover:text-primary">Pricing</a>
+            </div>
+            <p class="text-gray-500 text-sm">&copy; 2024 BSK METAL FINISHER. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+            menu.classList.toggle('flex');
+        }
+
+        const galleryItems = [
+            { id: 1, src: 'https://images.unsplash.com/photo-1610375461490-fb4133a2f0cd?q=80&w=1000&auto=format&fit=crop', alt: 'Gold Plated Jewelry' },
+            { id: 2, src: 'https://images.unsplash.com/photo-1615655406736-b37c4fabf923?q=80&w=1000&auto=format&fit=crop', alt: 'Silver Plated Utensils' },
+            { id: 3, src: 'https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=1000&auto=format&fit=crop', alt: 'Chrome Auto Parts' },
+            { id: 4, src: 'https://images.unsplash.com/photo-1535813547-99c456a41d4a?q=80&w=1000&auto=format&fit=crop', alt: 'Industrial Nickel Plating' },
+            { id: 5, src: 'https://images.unsplash.com/photo-1605557202138-097824c3f5c4?q=80&w=1000&auto=format&fit=crop', alt: 'Copper Components' },
+            { id: 6, src: 'https://images.unsplash.com/photo-1567696911980-2eed69a46042?q=80&w=1000&auto=format&fit=crop', alt: 'Antique Brass Finish' },
+            { id: 7, src: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?q=80&w=1000&auto=format&fit=crop', alt: 'Gold Plated Watch' },
+            { id: 8, src: 'https://images.unsplash.com/photo-1589712716170-07142472d689?q=80&w=1000&auto=format&fit=crop', alt: 'Chrome Bathroom Fittings' }
+        ];
+
+        const grid = document.getElementById('gallery-grid');
+        galleryItems.forEach(item => {
+            grid.innerHTML += `
+                <div class="relative group overflow-hidden rounded-2xl aspect-square shadow-2xl">
+                    <img src="${item.src}" alt="${item.alt}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-dark/60 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center p-6 text-center">
+                        <p class="text-primary font-heading font-black text-xl tracking-tight">${item.alt}</p>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+</body>
+
+</html>
